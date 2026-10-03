@@ -1,8 +1,8 @@
-// Hand-written service worker: offline app shell + asset cache. All user data is in IndexedDB, not here.
+// Hand-written service worker: offline app shell + asset cache. User data is in MongoDB via server actions (POSTs, which this ignores).
 // ponytail: no precache manifest of build chunks; a page's JS is cached the first time it loads online
 // (Link prefetching covers most of the app). Switch to Serwist if full first-install offline matters.
 const CACHE = "mathme-v1";
-const PAGES = ["/", "/start", "/start/easy", "/start/medium", "/start/hard", "/start/expert", "/practice", "/history", "/stats"];
+const PAGES = ["/", "/start", "/start/easy", "/start/medium", "/start/hard", "/start/expert", "/practice", "/history", "/stats", "/words", "/words/collection", "/words/settings"];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(caches.open(CACHE).then((c) => c.addAll(PAGES)));

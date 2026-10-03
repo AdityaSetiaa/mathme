@@ -1,0 +1,12 @@
+{
+  "positive": ["happy", "delightful", "hopeful", "wonderful", "cheerful"],
+  "sad": ["sad", "melancholy", "grief", "lonely", "despair", "sorrow"],
+  "confident": ["confident", "bold", "assertive", "fearless", "courageous"],
+  "intimate": ["affectionate", "romantic", "loving", "cherish"],
+  "sexual": ["erotic", "lustful", "sensual", "seductive"],
+  "vulgar": ["vulgar", "obscene", "crude", "lewd"],
+  "cuss": ["damn", "goddamn", "shit", "crap", "bastard", "fuck"],
+  "insult": ["idiot", "stupid person", "scoundrel", "loser", "coward"],
+  "sarcasm": ["sarcastic", "mocking", "scornful", "ironic", "snide"],
+  "general": []
+}

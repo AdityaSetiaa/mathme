@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 
-export function Screen({ title, back = "/", children }: { title?: string; back?: string; children: ReactNode }) {
+export function Screen({ title, back = "/", action, children }: { title?: string; back?: string; action?: ReactNode; children: ReactNode }) {
   return (
     <div className="mx-auto flex w-full max-w-lg flex-1 flex-col px-4 pb-[max(2rem,env(safe-area-inset-bottom))] pt-[max(1rem,env(safe-area-inset-top))]">
       {title && (
@@ -14,6 +14,7 @@ export function Screen({ title, back = "/", children }: { title?: string; back?:
             ←
           </Link>
           <h1 className="text-xl font-semibold">{title}</h1>
+          {action && <div className="ml-auto flex items-center gap-1">{action}</div>}
         </header>
       )}
       {children}

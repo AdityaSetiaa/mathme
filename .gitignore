@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# vocabulary dataset build inputs (downloaded, checksummed) and its Python env
+/.cache/
+/.venv-vocab/

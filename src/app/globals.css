@@ -60,7 +60,19 @@ body {
   background: var(--bg);
   color: var(--ink);
   font-family: var(--font-geist-sans), system-ui, sans-serif;
-  overscroll-behavior-y: none;
+  /* keep the edge rubber-band, but no pull-to-refresh / scroll chaining */
+  overscroll-behavior-y: contain;
+}
+
+/* Press feedback lands instantly on touch-down and eases back on release.
+   In the base layer so any element with its own transition-* utility keeps it. */
+@layer base {
+  a, button {
+    transition: transform 160ms ease-out, background-color 160ms ease-out;
+  }
+  a:active, button:active {
+    transition-duration: 0ms;
+  }
 }
 
 @keyframes pop {
@@ -75,9 +87,28 @@ body {
   to { transform: none; opacity: 1; }
 }
 
+@keyframes reveal {
+  from { transform: translateY(10px); opacity: 0; filter: blur(4px); }
+  to { transform: none; opacity: 1; filter: none; }
+}
+
+@keyframes beat {
+  0% { transform: scale(0.6); }
+  60% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
 .animate-pop { animation: pop 600ms cubic-bezier(0.2, 0.9, 0.2, 1) both; }
 .animate-rise { animation: rise 140ms ease-out both; }
+.animate-reveal { animation: reveal 280ms cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+.animate-beat { display: inline-flex; animation: beat 260ms ease-out both; }
 
+@keyframes fade {
+  from { opacity: 0; }
+}
+
+/* Reduced motion keeps the feedback, minus the movement: a cross-fade instead of zoom/slide. */
 @media (prefers-reduced-motion: reduce) {
-  .animate-pop, .animate-rise { animation-name: none; }
+  .animate-pop, .animate-rise, .animate-reveal { animation-name: fade; }
+  .animate-beat { animation-name: none; }
 }

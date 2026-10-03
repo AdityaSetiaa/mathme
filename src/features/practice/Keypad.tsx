@@ -42,7 +42,8 @@ export const ghostClickGuard = {
 
 export function Keypad({ onKey, onSubmit, canSubmit }: { onKey: (k: Key) => void; onSubmit: () => void; canSubmit: boolean }) {
   return (
-    <div className="grid select-none grid-cols-3 gap-2">
+    // touch-none: a finger sliding across keys mid-session must not pan or rubber-band the page
+    <div className="grid touch-none select-none grid-cols-3 gap-2">
       {KEYS.map((k) => (
         <button
           key={k}

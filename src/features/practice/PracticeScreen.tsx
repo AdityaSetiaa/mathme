@@ -158,7 +158,7 @@ function PracticeScreen({ difficulty, mode }: { difficulty: Difficulty; mode: Mo
           <span className="text-6xl" aria-hidden>
             {MODE_INFO[mode].emoji}
           </span>
-          <h1 className="text-3xl font-bold">{MODE_INFO[mode].label}</h1>
+          <h1 className="text-3xl font-bold tracking-tight">{MODE_INFO[mode].label}</h1>
           <p className="text-lg text-muted">
             {DIFFICULTY_INFO[difficulty].label} · {QUESTIONS} questions
           </p>
@@ -214,7 +214,7 @@ function PracticeScreen({ difficulty, mode }: { difficulty: Difficulty; mode: Mo
       </div>
 
       <div className="flex flex-1 flex-col items-center justify-center gap-4 py-6 text-center">
-        <p className={`font-semibold tabular-nums ${problem.prompt.length > 24 ? "text-2xl" : "text-5xl"}`}>{problem.prompt}</p>
+        <p className={`font-semibold tracking-tight tabular-nums ${problem.prompt.length > 24 ? "text-2xl" : "text-5xl"}`}>{problem.prompt}</p>
         <p
           className={`min-h-14 font-mono text-5xl font-bold tabular-nums ${
             showResult ? (last.isCorrect ? "text-good" : "text-bad") : input ? "" : "text-line"

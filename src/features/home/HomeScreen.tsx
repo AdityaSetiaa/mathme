@@ -80,6 +80,9 @@ export function HomeScreen() {
         </Link>
 
         <div className="grid grid-cols-2 gap-3">
+          <Link href="/words" className="col-span-2 flex h-16 items-center justify-center rounded-2xl border border-line bg-card font-semibold active:bg-line">
+            📖 WORDS
+          </Link>
           <Link href="/stats" className="flex h-16 items-center justify-center rounded-2xl border border-line bg-card font-semibold active:bg-line">
             📊 STATS
           </Link>
